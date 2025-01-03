@@ -1,0 +1,18 @@
+<h2>Backup & Restore</h2>
+
+<%= form_tag({action: 'backup'}, method: :post) do %>
+  <%= submit_tag 'Create Backup' %>
+<% end %>
+
+<h3>Available Backups</h3>
+<ul>
+  <% @backups.each do |backup| %>
+    <li>
+      <%= link_to File.basename(backup), {action: 'download', file: File.basename(backup)} %>
+      <%= form_tag({action: 'restore'}, method: :post) do %>
+        <%= hidden_field_tag :file, File.basename(backup) %>
+        <%= submit_tag 'Restore' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

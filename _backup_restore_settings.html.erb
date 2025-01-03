@@ -1,0 +1,27 @@
+<h2>Configure Database Settings</h2>
+
+<%= form_tag({action: 'update_config'}, method: :post) do %>
+  <div class="field">
+    <%= label_tag :db_user, 'Database User' %>
+    <%= text_field_tag :db_user, @db_user %>
+  </div>
+  <div class="field">
+    <%= label_tag :db_password, 'Database Password' %>
+    <%= password_field_tag :db_password, @db_password %>
+  </div>
+  <div class="field">
+    <%= label_tag :db_name, 'Database Name' %>
+    <%= text_field_tag :db_name, @db_name %>
+  </div>
+  <div class="field">
+    <%= label_tag :db_host, 'Database Host' %>
+    <%= text_field_tag :db_host, @db_host %>
+  </div>
+  <div class="field">
+    <%= label_tag :db_port, 'Database Port' %>
+    <%= text_field_tag :db_port, @db_port %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Update Configuration' %>
+  </div>
+<% end %>
